@@ -1,16 +1,19 @@
-import sys
+import sys 
 
-if len(sys.argv) >= 2:
-    script_name = sys.argv[0]
-    array = [None] * 11
-    array[1] = sys.argv[1]
+default_scores = [10, 20, 30, 40, 50]
+ 
+if len(sys.argv) <= 1:
+    scores = default_scores
+    print("Using default scores:", scores)
 else:
-    array = [1,2,3,9,7,10,5]
+    scores = [float(arg) for arg in sys.argv[1:]]
 
-sum_of_elements = sum(array)
-print("Sum of elements:", sum_of_elements)
-avg_of_elements = sum_of_elements / len(array)
-print("Average of elements:", avg_of_elements)
+total = sum(scores)
+average = total / len(scores)
+maximum = max(scores)
+minimum = min(scores)
 
-print("Max elements:", max(array))
-print("Min elements:", min(array))
+print("Total:", total)
+print("Average:", average)
+print("Maximum:", maximum)
+print("Minimum:", minimum)
